@@ -14,4 +14,4 @@ sitecustomize.py
 write_train_gym.json
 
 # 如果只想忽略 read.md，可以加這行
-read.md
+notes.md
