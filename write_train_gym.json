@@ -1,0 +1,85 @@
+{
+    "output_dir": "outputs/train/write2d_sac",
+    "job_name": "write2d_sac",
+    "resume": false,
+    "seed": 1000,
+    "batch_size": 256,
+    "steps": 100000,
+    "wandb": {
+        "enable": false
+    },
+    "resume": false,
+    "dataset": {
+        "repo_id": null,
+        "root": "local_datasets/write2d_empty"
+    },
+    "policy": {
+        "type": "sac",
+        "device": "cuda",
+        "n_obs_steps": 1,
+        "input_features": {
+            "observation.state": {
+                "type": "STATE",
+                "shape": [
+                    6
+                ]
+            }
+        },
+        "output_features": {
+            "action": {
+                "type": "ACTION",
+                "shape": [
+                    3
+                ]
+            }
+        },
+        "online_buffer_capacity": 100000,
+        "offline_buffer_capacity": 0,
+        "online_step_before_learning": 100,
+        "discount": 0.97,
+        "critic_lr": 0.0003,
+        "actor_lr": 0.0003,
+        "utd_ratio": 2,
+        "actor_learner_config": {
+            "learner_host": "127.0.0.1",
+            "learner_port": 50055,
+            "policy_parameters_push_frequency": 50
+        },
+        "push_to_hub": false,
+        "repo_id": null
+    },
+    "env": {
+        "fps": 10,
+        "use_viewer": false,
+        "video_record": {
+            "enabled": false
+        },
+        "type": "hil",
+        "name": "write2d_sim",
+        "task": "SO101Write2D-LeRobot-v0",
+        "mode": null,
+        "device": "cuda",
+        "fps": 20,
+        "features": {
+            "observation.state": {
+                "type": "STATE",
+                "shape": [
+                    6
+                ]
+            },
+            "action": {
+                "type": "ACTION",
+                "shape": [
+                    3
+                ]
+            }
+        },
+        "features_map": {
+            "observation.state": "state6",
+            "action": "action"
+        },
+        "wrapper": {
+            "use_gripper": false
+        }
+    }
+}

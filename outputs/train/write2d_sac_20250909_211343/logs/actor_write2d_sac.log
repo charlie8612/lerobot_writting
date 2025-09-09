@@ -1,0 +1,369 @@
+INFO 2025-09-09 21:13:47 rl/actor.py:117 Actor logging initialized, writing to outputs/train/write2d_sac_20250909_211343/logs/actor_write2d_sac.log
+INFO 2025-09-09 21:13:47 rl/actor.py:414 [ACTOR] Learner service client created
+INFO 2025-09-09 21:13:47 rl/actor.py:127 [ACTOR] Establishing connection with Learner
+INFO 2025-09-09 21:13:47 rl/actor.py:388 [ACTOR] Send ready message to Learner
+INFO 2025-09-09 21:14:07 rl/actor.py:137 [ACTOR] Connection with Learner established
+INFO 2025-09-09 21:14:07 rl/actor.py:432 [ACTOR] Start receiving parameters from the Learner
+INFO 2025-09-09 21:14:07 rl/actor.py:237 make_env online
+INFO 2025-09-09 21:14:07 ort/utils.py:74 [ACTOR] parameters Starting receiver
+INFO 2025-09-09 21:14:07 rl/actor.py:247 make_policy
+WARNING 2025-09-09 21:14:07 /factory.py:153 You are instantiating a policy from scratch and its features are parsed from an environment rather than a dataset. Normalization modules inside the policy will have infinite values by default without stats from a dataset.
+DEBUG 2025-09-09 21:14:07 ort/utils.py:76 [ACTOR] parameters Received item
+DEBUG 2025-09-09 21:14:07 ort/utils.py:93 [ACTOR] parameters Received data at step end size 551597
+DEBUG 2025-09-09 21:14:07 rt/utils.py:104 [ACTOR] parameters Queue updated
+DEBUG 2025-09-09 21:14:09 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:09 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:11 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:11 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:13 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:13 rl/actor.py:597 [ACTOR] Interaction queue is empty
+WARNING 2025-09-09 21:14:14 rl/actor.py:692 [ACTOR] Policy FPS 3.4 below required 20 at step 100
+DEBUG 2025-09-09 21:14:15 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:15 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:17 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:17 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:19 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:19 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:21 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:21 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:23 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:23 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:25 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:25 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:27 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:27 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:29 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:29 rl/actor.py:597 [ACTOR] Interaction queue is empty
+INFO 2025-09-09 21:14:30 rl/actor.py:318 [ACTOR] Global step 399: Episode reward: -73.41649506120011
+INFO 2025-09-09 21:14:30 rl/actor.py:617 [ACTOR] Load new parameters from Learner.
+DEBUG 2025-09-09 21:14:30 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0004796981811523 MB with
+DEBUG 2025-09-09 21:14:30 rl/actor.py:681 [ACTOR] Average policy frame rate: 368.1309886638494
+DEBUG 2025-09-09 21:14:30 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 404.16197922060775
+DEBUG 2025-09-09 21:14:30 ort/utils.py:65 [ACTOR] Send transitions Sent 1049079/1049079 bytes with state 3
+DEBUG 2025-09-09 21:14:30 ort/utils.py:67 [ACTOR] Send transitions Published 1.0004796981811523 MB
+DEBUG 2025-09-09 21:14:30 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:14:30 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:14:30 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:14:32 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:32 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:34 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:34 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:36 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:36 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:38 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:38 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:40 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:40 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:42 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:42 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:44 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:44 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:46 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:46 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:48 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:48 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:50 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:50 rl/actor.py:597 [ACTOR] Interaction queue is empty
+INFO 2025-09-09 21:14:51 rl/actor.py:318 [ACTOR] Global step 799: Episode reward: -75.1135776448995
+DEBUG 2025-09-09 21:14:51 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:14:51 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:14:51 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:14:51 rl/actor.py:681 [ACTOR] Average policy frame rate: 588.712242796184
+DEBUG 2025-09-09 21:14:51 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 420.2865774227302
+DEBUG 2025-09-09 21:14:51 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:14:51 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:14:51 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:14:53 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:53 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:55 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:55 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:57 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:57 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:14:59 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:14:59 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:01 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:01 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:03 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:03 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:05 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:05 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:07 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:07 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:09 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:09 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:11 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:11 rl/actor.py:597 [ACTOR] Interaction queue is empty
+INFO 2025-09-09 21:15:12 rl/actor.py:318 [ACTOR] Global step 1199: Episode reward: -60.165023538656534
+DEBUG 2025-09-09 21:15:12 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:15:12 rl/actor.py:681 [ACTOR] Average policy frame rate: 618.1747728973553
+DEBUG 2025-09-09 21:15:12 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 511.1236869866888
+DEBUG 2025-09-09 21:15:12 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:15:12 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:15:12 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:15:12 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:15:12 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:15:14 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:14 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:16 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:16 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:18 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:18 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:20 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:20 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:22 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:22 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:24 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:24 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:26 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:26 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:28 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:28 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:30 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:30 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:32 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:32 rl/actor.py:578 [ACTOR] Transition queue is empty
+INFO 2025-09-09 21:15:33 rl/actor.py:318 [ACTOR] Global step 1599: Episode reward: -69.73592057814821
+DEBUG 2025-09-09 21:15:33 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:15:33 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:15:33 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:15:33 rl/actor.py:681 [ACTOR] Average policy frame rate: 619.4881966885549
+DEBUG 2025-09-09 21:15:33 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 468.4935070757508
+DEBUG 2025-09-09 21:15:33 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:15:33 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:15:33 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:15:35 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:35 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:37 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:37 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:39 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:39 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:41 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:41 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:43 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:43 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:45 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:45 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:47 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:47 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:49 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:49 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:51 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:51 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:53 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:53 rl/actor.py:578 [ACTOR] Transition queue is empty
+INFO 2025-09-09 21:15:54 rl/actor.py:318 [ACTOR] Global step 1999: Episode reward: -70.72607873696833
+DEBUG 2025-09-09 21:15:54 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:15:54 rl/actor.py:681 [ACTOR] Average policy frame rate: 574.851930457592
+DEBUG 2025-09-09 21:15:54 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 387.93017343213353
+DEBUG 2025-09-09 21:15:54 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:15:54 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:15:54 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:15:54 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:15:54 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:15:56 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:56 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:15:58 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:15:58 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:00 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:00 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:02 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:02 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:04 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:04 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:06 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:06 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:08 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:08 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:10 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:10 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:12 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:12 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:14 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:14 rl/actor.py:578 [ACTOR] Transition queue is empty
+INFO 2025-09-09 21:16:15 rl/actor.py:318 [ACTOR] Global step 2399: Episode reward: -68.07873015310615
+DEBUG 2025-09-09 21:16:15 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:16:15 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:16:15 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:16:15 rl/actor.py:681 [ACTOR] Average policy frame rate: 569.81230858466
+DEBUG 2025-09-09 21:16:15 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 406.3095980176642
+DEBUG 2025-09-09 21:16:15 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:16:15 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:16:15 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:16:17 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:17 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:19 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:19 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:21 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:21 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:23 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:23 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:25 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:25 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:27 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:27 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:29 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:29 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:31 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:31 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:33 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:33 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:35 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:35 rl/actor.py:597 [ACTOR] Interaction queue is empty
+INFO 2025-09-09 21:16:36 rl/actor.py:318 [ACTOR] Global step 2799: Episode reward: -78.31536436472088
+DEBUG 2025-09-09 21:16:37 rl/actor.py:681 [ACTOR] Average policy frame rate: 537.7646040134748
+DEBUG 2025-09-09 21:16:37 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 331.36755057426046
+DEBUG 2025-09-09 21:16:37 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:16:37 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:16:37 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:16:37 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:16:37 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:16:37 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:16:39 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:39 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:41 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:41 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:43 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:43 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:45 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:45 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:47 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:47 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:49 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:49 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:51 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:51 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:53 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:53 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:55 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:55 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:16:57 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:16:57 rl/actor.py:578 [ACTOR] Transition queue is empty
+INFO 2025-09-09 21:16:57 rl/actor.py:318 [ACTOR] Global step 3199: Episode reward: -90.80351272337138
+DEBUG 2025-09-09 21:16:58 rl/actor.py:681 [ACTOR] Average policy frame rate: 409.32450472331
+DEBUG 2025-09-09 21:16:58 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 224.71276375140752
+DEBUG 2025-09-09 21:16:58 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:16:58 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:16:58 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:16:58 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:16:58 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:16:58 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:17:00 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:00 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:02 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:02 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:04 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:04 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:06 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:06 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:08 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:08 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:10 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:10 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:12 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:12 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:14 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:14 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:16 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:16 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:18 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:18 rl/actor.py:578 [ACTOR] Transition queue is empty
+INFO 2025-09-09 21:17:18 rl/actor.py:318 [ACTOR] Global step 3599: Episode reward: -85.75019210502505
+DEBUG 2025-09-09 21:17:19 rl/actor.py:681 [ACTOR] Average policy frame rate: 479.8984273806483
+DEBUG 2025-09-09 21:17:19 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 271.8773593359685
+DEBUG 2025-09-09 21:17:19 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:17:19 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:17:19 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:17:19 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:17:19 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:17:19 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:17:21 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:21 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:23 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:23 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:25 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:25 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:27 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:27 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:29 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:29 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:31 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:31 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:33 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:33 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:35 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:35 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:37 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:37 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:39 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:39 rl/actor.py:578 [ACTOR] Transition queue is empty
+INFO 2025-09-09 21:17:40 rl/actor.py:318 [ACTOR] Global step 3999: Episode reward: -84.33151868395507
+DEBUG 2025-09-09 21:17:40 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:17:40 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:17:40 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:17:40 rl/actor.py:681 [ACTOR] Average policy frame rate: 475.85813517086314
+DEBUG 2025-09-09 21:17:40 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 245.67423560912482
+DEBUG 2025-09-09 21:17:40 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:17:40 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:17:40 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:17:42 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:42 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:44 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:44 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:47 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:47 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:49 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:49 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:51 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:51 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:53 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:53 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:55 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:55 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:57 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:57 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:17:59 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:17:59 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:01 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:01 rl/actor.py:578 [ACTOR] Transition queue is empty
+INFO 2025-09-09 21:18:01 rl/actor.py:318 [ACTOR] Global step 4399: Episode reward: -83.03711401335894
+DEBUG 2025-09-09 21:18:02 rl/actor.py:681 [ACTOR] Average policy frame rate: 488.9269373467021
+DEBUG 2025-09-09 21:18:02 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 281.2931055254057
+DEBUG 2025-09-09 21:18:02 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:18:02 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:18:02 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:18:02 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:18:02 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:18:02 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:18:04 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:04 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:06 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:06 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:08 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:08 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:10 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:10 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:12 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:12 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:14 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:14 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:16 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:16 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:18 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:18 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:20 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:20 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:22 rl/actor.py:597 [ACTOR] Interaction queue is empty
+DEBUG 2025-09-09 21:18:22 rl/actor.py:578 [ACTOR] Transition queue is empty
+INFO 2025-09-09 21:18:22 rl/actor.py:318 [ACTOR] Global step 4799: Episode reward: -69.347985910438
+DEBUG 2025-09-09 21:18:22 ort/utils.py:50 [ACTOR] Send transitions Buffer size 1.0008459091186523 MB with
+DEBUG 2025-09-09 21:18:22 ort/utils.py:65 [ACTOR] Send transitions Sent 1049463/1049463 bytes with state 3
+DEBUG 2025-09-09 21:18:22 ort/utils.py:67 [ACTOR] Send transitions Published 1.0008459091186523 MB
+DEBUG 2025-09-09 21:18:22 rl/actor.py:681 [ACTOR] Average policy frame rate: 524.3562267911025
+DEBUG 2025-09-09 21:18:22 rl/actor.py:682 [ACTOR] Policy frame rate 90th percentile: 376.966260730319
+DEBUG 2025-09-09 21:18:22 ort/utils.py:50 [ACTOR] Send interactions Buffer size 0.00018310546875 MB with
+DEBUG 2025-09-09 21:18:22 ort/utils.py:65 [ACTOR] Send interactions Sent 192/192 bytes with state 3
+DEBUG 2025-09-09 21:18:22 ort/utils.py:67 [ACTOR] Send interactions Published 0.00018310546875 MB
+DEBUG 2025-09-09 21:18:24 rl/actor.py:578 [ACTOR] Transition queue is empty
+DEBUG 2025-09-09 21:18:24 rl/actor.py:597 [ACTOR] Interaction queue is empty
+INFO 2025-09-09 21:18:25 s/process.py:61  Shutdown signal 2 received. Cleaning up…
+INFO 2025-09-09 21:18:25 rl/actor.py:274 [ACTOR] Shutting down act_with_policy
