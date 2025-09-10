@@ -1,32 +1,32 @@
 # so101_tasks/panda_write_keyboard.py
+# (請用以下內容完整替換)
+
 import gymnasium as gym
+from gymnasium import spaces
 import numpy as np
 
 # --------- 小工具：幾條簡單的目標軌跡 ---------
-def _circle(n=200, r=0.30, cx=0.50, cy=0.50):
-    t = np.linspace(0, 2*np.pi, n, dtype=np.float32)
-    return np.stack([r*np.cos(t)+cx, r*np.sin(t)+cy], axis=1)  # (N,2) in [0,1]^2
+def _circle(n=200, r=0.15, cx=0.5, cy=0.4):
+    """
+    產生一個圓形軌跡。注意：Panda 環境的工作空間較大，
+    所以半徑 r 需要調小一些，圓心也需要微調。
+    """
+    t = np.linspace(0, 2 * np.pi, n, dtype=np.float32)
+    # Panda 的 XY 平面是桌子，Z 軸是上下
+    # 我們讓它在一個固定的高度 (z=0.1) 上畫圓
+    z = np.full(n, 0.1, dtype=np.float32)
+    return np.stack([r * np.cos(t) + cx, r * np.sin(t) + cy, z], axis=1)
 
-def _line(n=200, x0=0.2, y0=0.5, x1=0.8, y1=0.5):
-    t = np.linspace(0, 1, n, dtype=np.float32)
-    return np.stack([x0 + t*(x1-x0), y0 + t*(y1-y0)], axis=1)
-
-# --------- 只覆寫「回饋/成功」，其他觀測/視窗/操控完全沿用 gym_hil ---------
+# --------- 包裝器 1：修改獎勵機制，變成寫字任務 ---------
 class WriteRewardWrapper(gym.Wrapper):
-    """
-    將 Panda*Keyboard 環境包裝成「臨摹筆畫」任務：
-    - 目標軌跡 target_traj: (N,2) 紙面座標，已正規化到 [0,1]^2
-    - pen_down：優先用夾爪狀態；沒有就用 Z 低於 z_contact 當作「落筆」
-    - 回饋：越靠近目標越好；可選擇要求必須落筆才給分
-    - 成功：coverage(ε) 達到門檻 或 連續多步 min_dist < ε
-    """
     def __init__(self, env, target_traj, tol=0.02, progress_bonus=0.2):
-            super().__init__(env)
-            self.target = np.asarray(target_traj, np.float32).reshape(-1, 2)
-            self.tol = float(tol)                    # 抵達 waypoint 的半徑
-            self.progress_bonus = float(progress_bonus)
-            self.i = 0                               # 目前目標 waypoint 索引
-    
+        super().__init__(env)
+        # 目標軌跡現在是 3D 的 (N, 3)
+        self.target = np.asarray(target_traj, np.float32).reshape(-1, 3)
+        self.tol = float(tol)
+        self.progress_bonus = float(progress_bonus)
+        self.i = 0  # 目前目標 waypoint 索引
+
     def reset(self, **kw):
         obs, info = self.env.reset(**kw)
         self.i = 0
@@ -34,22 +34,20 @@ class WriteRewardWrapper(gym.Wrapper):
 
     def step(self, action):
         obs, _, term, trunc, info = self.env.step(action)
-        xy = obs["agent_pos"][:2].astype(np.float32)
+        # agent_pos 現在是 3D 座標
+        xyz = obs["agent_pos"][:3].astype(np.float32)
 
         # 與目前 waypoint 的距離
-        d_vec = self.target[self.i] - xy
-        dist = float(np.linalg.norm(d_vec))
-
-        # 基礎：越近越好
+        dist = float(np.linalg.norm(self.target[self.i] - xyz))
         reward = -dist
 
-        # 如果進入半徑 → 推進到下一個 waypoint 並給 progress 獎勵
+        # 如果進入半徑 -> 推進到下一個 waypoint 並給獎勵
         progressed = False
         while dist < self.tol and self.i < len(self.target) - 1:
             self.i += 1
             progressed = True
-            d_vec = self.target[self.i] - xy
-            dist = float(np.linalg.norm(d_vec))
+            dist = float(np.linalg.norm(self.target[self.i] - xyz))
+        
         if progressed:
             reward += self.progress_bonus
 
@@ -57,12 +55,36 @@ class WriteRewardWrapper(gym.Wrapper):
 
         info = dict(info or {})
         info.update({"min_dist": dist, "wp_index": int(self.i), "success": bool(done_success)})
+        # 我們回傳修改後的 reward，並沿用原始環境的 terminated 和 truncated
         return obs, reward, term, trunc, info
 
-# --------- 任務工廠：造官方 Panda 鍵盤環境，套上寫字回饋 ---------
+# --------- 包裝器 2：轉換觀測值格式以相容 LeRobot ---------
+class PandaToLeRobotState(gym.ObservationWrapper):
+    def __init__(self, env: gym.Env):
+        super().__init__(env)
+        # LeRobot 的 SAC 模型通常只看 agent 的狀態
+        # 這裡我們使用 agent_pos (x,y,z,r,p,y) 作為輸入特徵
+        state_shape = env.observation_space["agent_pos"].shape
+        self.observation_space = spaces.Dict({
+            "observation.state": spaces.Box(
+                low=-np.inf, high=np.inf, shape=state_shape, dtype=np.float32
+            )
+        })
+
+    def observation(self, obs):
+        # 從字典格式的觀測值中，只挑出 agent_pos 作為 state
+        return {"observation.state": obs["agent_pos"].astype(np.float32)}
+
+# --------- 任務工廠：串聯起所有元件 ---------
 def make_env(**kwargs):
-    # 造官方鍵盤環境（帶視窗/相機/操控），kwargs 由 lerobot 傳入（image_obs/render_mode 等）
+    print("\n\n>>> 正在載入 3D Panda 環境... <<<\n\n")
+    # 1. 建立基礎的 3D Panda 環境
     base = gym.make("gym_hil/PandaPickCubeKeyboard-v0", **kwargs)
-    # 目標：先用圓；之後你要字/筆畫，只要把這一行換成你的點列即可
-    traj = _circle()
-    return WriteRewardWrapper(base, target_traj=traj)
+    
+    # 2. 用 Wrapper 修改獎勵機制，讓它變成「跟隨圓圈軌跡」的任務
+    reward_wrapped_env = WriteRewardWrapper(base, target_traj=_circle())
+    
+    # 3. 再用另一個 Wrapper 修改觀測值格式，讓它相容 LeRobot
+    final_env = PandaToLeRobotState(reward_wrapped_env)
+    
+    return final_env
