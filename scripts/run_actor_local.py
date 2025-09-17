@@ -14,9 +14,9 @@ import lerobot.policies.sac.configuration_sac as sac_conf
 
 def _patched_validate_features(self):
     if not getattr(self, "input_features", None) or "observation.state" not in self.input_features:
-        self.input_features = {"observation.state": PolicyFeature(type=FeatureType.STATE, shape=(18,))}
+        self.input_features = {"observation.state": PolicyFeature(type=FeatureType.STATE, shape=(19,))}
     if not getattr(self, "output_features", None) or "action" not in self.output_features:
-        self.output_features = {"action": PolicyFeature(type=FeatureType.ACTION, shape=(7,))}
+        self.output_features = {"action": PolicyFeature(type=FeatureType.ACTION, shape=(4,))}
     return None
 
 sac_conf.SACConfig.validate_features = _patched_validate_features

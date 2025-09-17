@@ -21,7 +21,7 @@
             "observation.state": {
                 "type": "STATE",
                 "shape": [
-                    18
+                    19
                 ]
             }
         },
@@ -29,7 +29,7 @@
             "action": {
                 "type": "ACTION",
                 "shape": [
-                    7
+                    4
                 ]
             }
         },
@@ -50,7 +50,7 @@
     },
     "env": {
         "fps": 10,
-        "use_viewer": true,
+        "use_viewer": false,
         "video_record": {
             "enabled": false
         },
@@ -64,13 +64,13 @@
             "observation.state": {
                 "type": "STATE",
                 "shape": [
-                    18
+                    19
                 ]
             },
             "action": {
                 "type": "ACTION",
                 "shape": [
-                    7
+                    4
                 ]
             }
         },

@@ -1,31 +1,69 @@
-# so101_tasks/panda_write_keyboard.py
+# In so101_tasks/panda_write_keyboard.py
 # (請用以下內容完整替換)
 
 import gymnasium as gym
 from gymnasium import spaces
 import numpy as np
 
-# --------- 小工具：幾條簡單的目標軌跡 ---------
-def _circle(n=200, r=0.15, cx=0.5, cy=0.4):
-    """
-    產生一個圓形軌跡。注意：Panda 環境的工作空間較大，
-    所以半徑 r 需要調小一些，圓心也需要微調。
-    """
-    t = np.linspace(0, 2 * np.pi, n, dtype=np.float32)
-    # Panda 的 XY 平面是桌子，Z 軸是上下
-    # 我們讓它在一個固定的高度 (z=0.1) 上畫圓
-    z = np.full(n, 0.1, dtype=np.float32)
-    return np.stack([r * np.cos(t) + cx, r * np.sin(t) + cy, z], axis=1)
+# --------- 全局常量：定義物理邊界 ---------
+Z_CONTACT_THRESHOLD = 0.02  # Z 軸接觸高度 (單位：公尺)
 
-# --------- 包裝器 1：修改獎勵機制，變成寫字任務 ---------
-class WriteRewardWrapper(gym.Wrapper):
+# --------- 小工具：半圓軌跡 ---------
+def _semicircle_in_front(n=100, r=0.2, cx=0.5, cy=0.35):
+    t = np.linspace(0, np.pi, n, dtype=np.float32)
+    x = r * np.cos(t) + cx
+    y = r * np.sin(t) + cy
+    z = np.full(n, Z_CONTACT_THRESHOLD, dtype=np.float32)
+    return np.stack([x, y, z], axis=1)
+
+# --------- 包裝器 1：將 3 維動作翻譯成 4 維 ---------
+class ActionTranslatorWrapper(gym.ActionWrapper):
+    def __init__(self, env: gym.Env):
+        super().__init__(env)
+        self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(3,), dtype=np.float32)
+
+    def action(self, action: np.ndarray) -> np.ndarray:
+        return np.append(action, 0.0).astype(np.float32)
+
+# --------- 包裝器 2：轉換觀測值格式，並追加「接觸」狀態 (最終修正版) ---------
+class StateAndContactWrapper(gym.ObservationWrapper):
+    def __init__(self, env: gym.Env):
+        super().__init__(env)
+        # 原始的 agent_pos 是 6 維或 18 維，取決於框架的包裝
+        # 我們直接取用它，並追加一個維度
+        original_state_shape = env.observation_space["agent_pos"].shape
+        new_state_dim = original_state_shape[0] + 1
+
+        # 建立新的、19 維的觀測空間
+        self.observation_space = spaces.Dict({
+            "observation.state": spaces.Box(
+                low=-np.inf, high=np.inf, shape=(new_state_dim,), dtype=np.float32
+            )
+        })
+
+    def observation(self, obs):
+        # 1. 將 `agent_pos` 作為基礎狀態 (這是之前缺失的關鍵步驟)
+        #    lerobot 的 gym_manipulator 會將 6 維 agent_pos 擴充成 18 維
+        base_state = obs["agent_pos"].astype(np.float32)
+        
+        # 2. 根據 Z 軸座標，判斷是否接觸
+        current_z = base_state[2] # Z 軸是第 3 個元素
+        is_in_contact = 1.0 if current_z <= Z_CONTACT_THRESHOLD else 0.0
+        
+        # 3. 將「接觸」狀態作為最後一個維度，追加到基礎狀態後面
+        final_state = np.append(base_state, is_in_contact).astype(np.float32)
+        
+        # 4. 以 `lerobot` 期望的格式回傳
+        return {"observation.state": final_state}
+
+# --------- 包裝器 3：修改獎勵機制，使用「接觸」狀態 ---------
+class ContactRewardWrapper(gym.Wrapper):
     def __init__(self, env, target_traj, tol=0.02, progress_bonus=0.2):
         super().__init__(env)
-        # 目標軌跡現在是 3D 的 (N, 3)
         self.target = np.asarray(target_traj, np.float32).reshape(-1, 3)
         self.tol = float(tol)
         self.progress_bonus = float(progress_bonus)
-        self.i = 0  # 目前目標 waypoint 索引
+        self.i = 0
 
     def reset(self, **kw):
         obs, info = self.env.reset(**kw)
@@ -34,57 +72,39 @@ class WriteRewardWrapper(gym.Wrapper):
 
     def step(self, action):
         obs, _, term, trunc, info = self.env.step(action)
-        # agent_pos 現在是 3D 座標
-        xyz = obs["agent_pos"][:3].astype(np.float32)
+        
+        full_state = obs["observation.state"]
+        xyz = full_state[:3]
+        is_in_contact = full_state[-1] > 0.5 # 接觸狀態是最後一個維度
 
-        # 與目前 waypoint 的距離
         dist = float(np.linalg.norm(self.target[self.i] - xyz))
         reward = -dist
 
-        # 如果進入半徑 -> 推進到下一個 waypoint 並給獎勵
-        progressed = False
-        while dist < self.tol and self.i < len(self.target) - 1:
-            self.i += 1
-            progressed = True
-            dist = float(np.linalg.norm(self.target[self.i] - xyz))
-        
-        if progressed:
-            reward += self.progress_bonus
+        if is_in_contact:
+            while dist < self.tol and self.i < len(self.target) - 1:
+                self.i += 1
+                dist = float(np.linalg.norm(self.target[self.i] - xyz))
+                reward += self.progress_bonus # 每推進一步都給獎勵
 
-        done_success = (self.i >= len(self.target) - 1 and dist < self.tol)
+        done_success = (self.i >= len(self.target) - 1 and dist < self.tol and is_in_contact)
 
         info = dict(info or {})
-        info.update({"min_dist": dist, "wp_index": int(self.i), "success": bool(done_success)})
-        # 我們回傳修改後的 reward，並沿用原始環境的 terminated 和 truncated
+        # This is the corrected version
+        info.update({"min_dist": dist, "wp_index": int(self.i), "success": float(done_success), "in_contact": float(is_in_contact)})
         return obs, reward, term, trunc, info
 
-# --------- 包裝器 2：轉換觀測值格式以相容 LeRobot ---------
-class PandaToLeRobotState(gym.ObservationWrapper):
-    def __init__(self, env: gym.Env):
-        super().__init__(env)
-        # LeRobot 的 SAC 模型通常只看 agent 的狀態
-        # 這裡我們使用 agent_pos (x,y,z,r,p,y) 作為輸入特徵
-        state_shape = env.observation_space["agent_pos"].shape
-        self.observation_space = spaces.Dict({
-            "observation.state": spaces.Box(
-                low=-np.inf, high=np.inf, shape=state_shape, dtype=np.float32
-            )
-        })
-
-    def observation(self, obs):
-        # 從字典格式的觀測值中，只挑出 agent_pos 作為 state
-        return {"observation.state": obs["agent_pos"].astype(np.float32)}
-
-# --------- 任務工廠：串聯起所有元件 ---------
+# --------- 任務工廠：串聯起所有新的元件 (最終修正版) ---------
 def make_env(**kwargs):
-    print("\n\n>>> 正在載入 3D Panda 環境... <<<\n\n")
-    # 1. 建立基礎的 3D Panda 環境
-    base = gym.make("gym_hil/PandaPickCubeKeyboard-v0", **kwargs)
+    # 1. 建立 lerobot 原始的 Panda 環境
+    base_env = gym.make("gym_hil/PandaPickCubeKeyboard-v0", **kwargs)
     
-    # 2. 用 Wrapper 修改獎勵機制，讓它變成「跟隨圓圈軌跡」的任務
-    reward_wrapped_env = WriteRewardWrapper(base, target_traj=_circle())
+    # 2. 套上我們的 3->4 維動作翻譯官
+    action_wrapped_env = ActionTranslatorWrapper(base_env)
     
-    # 3. 再用另一個 Wrapper 修改觀測值格式，讓它相容 LeRobot
-    final_env = PandaToLeRobotState(reward_wrapped_env)
+    # 3. 再套上我們新的、能處理 `agent_pos` 並追加接觸狀態的觀測值修改器
+    obs_wrapped_env = StateAndContactWrapper(action_wrapped_env)
+
+    # 4. 在最外層，套上我們新的、基於物理接觸的獎勵機制
+    final_env = ContactRewardWrapper(obs_wrapped_env, target_traj=_semicircle_in_front())
     
     return final_env

@@ -81,7 +81,6 @@ export CUDA_VISIBLE_DEVICES=0 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
 # learner
 python /home/taco/xarm/scripts/run_learner_local.py \
   --config_path /home/taco/xarm/3D_write_train_gym.json
-  --output_dir "outputs/train/write2d_sac_$(date +%Y%m%d_%H%M%S)"
 # actor
 python /home/taco/xarm/scripts/run_actor_local.py \
   --config_path /home/taco/xarm/3D_write_train_gym.json \
