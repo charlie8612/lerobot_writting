@@ -71,8 +71,10 @@ class ContactRewardWrapper(gym.Wrapper):
         return obs, info
 
     def step(self, action):
-        obs, _, term, trunc, info = self.env.step(action)
-        
+        # obs, _, term, trunc, info = self.env.step(action)
+        # 我們不再需要傳遞底層的 info，以避免不一致
+        obs, _, term, trunc, _ = self.env.step(action)
+
         full_state = obs["observation.state"]
         xyz = full_state[:3]
         is_in_contact = full_state[-1] > 0.5 # 接觸狀態是最後一個維度
@@ -88,9 +90,14 @@ class ContactRewardWrapper(gym.Wrapper):
 
         done_success = (self.i >= len(self.target) - 1 and dist < self.tol and is_in_contact)
 
-        info = dict(info or {})
-        # This is the corrected version
-        info.update({"min_dist": dist, "wp_index": int(self.i), "success": float(done_success), "in_contact": float(is_in_contact)})
+        # 建立一個全新的、結構固定的 info 字典
+        # 這樣可以確保回傳給 lerobot 的資訊維度永遠一致
+        info = {
+            "min_dist": dist,
+            "wp_index": int(self.i),
+            "success": float(done_success),
+            "in_contact": float(is_in_contact)
+        }
         return obs, reward, term, trunc, info
 
 # --------- 任務工廠：串聯起所有新的元件 (最終修正版) ---------

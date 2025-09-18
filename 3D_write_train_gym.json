@@ -4,11 +4,10 @@
     "resume": false,
     "seed": 1000,
     "batch_size": 256,
-    "steps": 100000,
+    "steps": 2000,
     "wandb": {
         "enable": false
     },
-    "resume": false,
     "dataset": {
         "repo_id": null,
         "root": "local_datasets/write2d_empty"
